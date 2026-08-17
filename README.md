@@ -24,8 +24,9 @@ O ecossistema do projeto foi configurado através do **Maven**.
 
 ---
 
-##  Estrutura do Projeto
+## Estrutura do Projeto
 
+```text
 src/
  ├── main/
  │   ├── java/br/com/tcs/treinamento/
@@ -46,9 +47,6 @@ src/
 
 ---
 
-```
 *Atenção: O projeto utiliza `hibernate.hbm2ddl.auto = update`, portanto as tabelas serão sincronizadas automaticamente durante a inicialização.*
 
-
-
- **URL de Acesso:** `http://localhost:8080/tcs-jsf-treinamento`
+**URL de Acesso:** `http://localhost:8080/tcs-jsf-treinamento`
