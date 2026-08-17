@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <persistence-unit name="myPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Insira suas classes de entidade aqui -->
+        <class>br.com.tcs.treinamento.entity.Pessoa</class>
+        <class>br.com.tcs.treinamento.entity.Produto</class>
+
+<!--         <properties>-->
+<!--             &lt;!&ndash; Dados de conexão com o H2 &ndash;&gt;-->
+<!--            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>-->
+<!--            <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/test;AUTO_SERVER=TRUE"/>-->
+<!--            <property name="javax.persistence.jdbc.user" value="sa"/>-->
+<!--            <property name="javax.persistence.jdbc.password" value=""/>-->
+
+<!--            &lt;!&ndash; Dialeto e configuração do Hibernate &ndash;&gt;-->
+<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>-->
+<!--            &lt;!&ndash; Cria ou atualiza o schema de acordo com as alterações na entidade &ndash;&gt;-->
+<!--            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+<!--            &lt;!&ndash; Opcional: para visualizar as queries no console &ndash;&gt;-->
+<!--            <property name="hibernate.show_sql" value="true"/>-->
+<!--            <property name="hibernate.format_sql" value="true"/>-->
+<!--        </properties>-->
+        <properties>
+            <!-- configurações de Conexão com o MySQL -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+
+            <!-- URL apontando para a porta padrão do MySQL (3306) e o banco tcs_treinamento -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tcs_treinamento?serverTimezone=UTC" />
+
+            <!-- credenciais de acesso ao seu MySQL (ajuste a senha) -->
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="teste123" />
+
+            <!-- dialeto para o Hibernate traduzir o Java para o SQL específico do MySQL 8 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+
+            <!-- mantém a criação automática das tabelas -->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
+            <!-- mostra o SQL gerado no console -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
